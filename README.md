@@ -83,9 +83,9 @@ Only the Go standard library is used — no external modules, no `go.sum`, no in
    go version
    ```
    You should see something like `go version go1.23.x windows/amd64`.
-3. Put `converter.go` and `go.mod` in a folder, e.g. `D:\03_Kodlama\convertor`, and `cd` into it:
+3. Put `converter.go` and `go.mod` in a folder, e.g. `C:\...\convertor`, and `cd` into it:
    ```bat
-   cd D:\03_Kodlama\convertor
+   cd C:\...\convertor
    ```
 4. Build:
    ```bat
@@ -105,7 +105,7 @@ Go's cross-compilation "just works" here because the program only uses the stand
 
 ### Notes on the build flags
 
-- `-trimpath` strips local filesystem paths (like `D:\03_Kodlama\convertor`) from the compiled binary, so they don't leak into the `.exe`.
+- `-trimpath` strips local filesystem paths (like `C:\...\convertor`) from the compiled binary, so they don't leak into the `.exe`.
 - We deliberately **don't** add `-s -w` (symbol/debug-info stripping) or run the result through a packer like UPX — see [Antivirus false positives](#antivirus-false-positives) below for why.
 - No `-ldflags`, no external linker needed; `CGO_ENABLED=0` (default when cross-compiling, and safe to set explicitly on Windows too) keeps the build fully static.
 
